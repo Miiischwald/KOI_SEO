@@ -1,0 +1,44 @@
+---
+type Teaser = {
+  titel: string;
+  snippet: string;
+  href: string;
+};
+
+const teasers: Array<Teaser> = [
+  {
+    titel: "Ökopunkte: Von der Idee zur Maßnahme",
+    snippet:
+      "Ein Überblick über typische Schritte, Unterlagen und Fallstricke – als Platzhalter bis echte Blogposts live sind.",
+    href: "/blog/",
+  },
+  {
+    titel: "Flächenscouting & Sicherung",
+    snippet:
+      "Wie Verfügbarkeit, Nutzbarkeit und langfristige Pflege-/Monitoring-Aspekte strukturiert betrachtet werden können.",
+    href: "/blog/",
+  },
+  {
+    titel: "Behördenfähig planen",
+    snippet:
+      "Welche Nachweise und Beschreibungen in der Praxis helfen können, damit Kompensation sauber dokumentiert wird.",
+    href: "/blog/",
+  },
+];
+---
+
+<section class="space-y-6">
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <h2 class="text-2xl font-bold tracking-tight">Aktuelle Beiträge</h2>
+    <a href="/blog/" class="text-sm hover:underline">Alle Beiträge ansehen</a>
+  </div>
+
+  <div class="grid gap-4 md:grid-cols-3">
+    {teasers.map((t) => (
+      <a href={t.href} class="rounded-2xl border border-default bg-offset p-5">
+        <h3 class="text-base font-semibold">{t.titel}</h3>
+        <p class="mt-2 text-sm text-offset">{t.snippet}</p>
+      </a>
+    ))}
+  </div>
+</section>
