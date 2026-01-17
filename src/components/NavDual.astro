@@ -2,19 +2,19 @@
 /**
  * NavDual - Dual navigation system component
  *
- * Renders a sticky header navigation that:
+ * Renders a fixed header navigation that:
  * - Hides when #koi-hero section is visible in viewport
  * - Shows when scrolling past hero section
  * - Respects prefers-reduced-motion
  * - Works on pages with or without hero
  *
  * Behavior:
- * - Pages WITH hero: Sticky nav hidden at top, shows when scrolling past
- * - Pages WITHOUT hero: Sticky nav always visible (default state)
+ * - Pages WITH hero: Fixed nav hidden at top, shows when scrolling past
+ * - Pages WITHOUT hero: Fixed nav always visible (default state)
  */
 ---
 
-<header class="koi-nav-sticky sticky top-0 z-50 border-b border-default bg-default backdrop-blur">
+<header class="koi-nav-sticky fixed top-0 left-0 right-0 z-50 border-b border-default bg-default backdrop-blur">
   <div class="mx-auto flex max-w-6xl items-center justify-between px-8 py-4">
     <a href="/brandenburg/" class="text-sm font-semibold tracking-wide">
       KOI • Brandenburg
@@ -83,7 +83,7 @@
 </script>
 
 <style>
-  /* Sticky navigation base styles */
+  /* Fixed navigation base styles */
   .koi-nav-sticky {
     /* Default: visible state */
     transform: translateY(0);
