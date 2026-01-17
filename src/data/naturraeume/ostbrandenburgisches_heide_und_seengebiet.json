@@ -1,0 +1,85 @@
+{
+  "naturraum_id": "ostbrandenburgisches_heide_und_seengebiet",
+  "name": "Ostbrandenburgisches Heide- und Seengebiet",
+  "meta": {
+    "bundesland": "Brandenburg",
+    "landkreise": [
+      "TODO"
+    ],
+    "wichtigste_staedte": [
+      "TODO"
+    ]
+  },
+  "seo": {
+    "meta_title": "Ausgleichsflächen Ostbrandenburgisches Heide- und Seengebiet | Ökopunkte Brandenburg",
+    "meta_description": "Flächenscouting, Unterlagen und Sicherung für Ausgleichsflächen in Ostbrandenburgisches Heide- und Seengebiet. Ökopunkte & Kompensation in Brandenburg."
+  },
+  "hero": {
+    "headline": "Ausgleichsflächen in Ostbrandenburgisches Heide- und Seengebiet",
+    "subheadline": "Wir unterstützen beim Flächenscouting, der Bewertung und der Sicherung von Ausgleichsflächen und begleiten behördenfähige Unterlagen für Kompensationsmaßnahmen und Ökopunkte in Brandenburg.",
+    "cta_primaer": {
+      "label": "Projekt anfragen",
+      "href": "/kontakt/"
+    },
+    "cta_sekundaer": {
+      "label": "Zur Brandenburg-Übersicht",
+      "href": "/brandenburg/"
+    },
+    "hero_bild": {
+      "src": "/assets/naturraeume/ostbrandenburgisches_heide_und_seengebiet/hero.jpg",
+      "alt": "Ausgleichsfläche und Kompensationsmaßnahmen im Naturraum Ostbrandenburgisches Heide- und Seengebiet"
+    }
+  },
+  "features": [
+    {
+      "titel": "Flächenscouting & Verfügbarkeit",
+      "beschreibung": "Wir identifizieren potenzielle Ausgleichsflächen, prüfen grundlegende Rahmenbedingungen (Nutzung, Zugang, Konflikte) und klären Verfügbarkeit als Basis für eine belastbare Shortlist."
+    },
+    {
+      "titel": "Behördenfähige Unterlagen",
+      "beschreibung": "Wir unterstützen bei Maßnahmebeschreibung, Karten/Abgrenzung, Pflege- und Entwicklungszielen sowie der Dokumentation – so, dass Unterlagen in Verfahren und Abstimmungen nutzbar sind."
+    },
+    {
+      "titel": "Maßnahmentypen als Optionen",
+      "beschreibung": "Je nach Projekt und Fläche: Waldumbau & Strukturentwicklung, Extensivierung, Hecken/Säume, Feuchtstellen, Gewässerrandstreifen oder Artenschutz-Elemente – standort- und genehmigungsbezogen."
+    },
+    {
+      "titel": "Sicherung, Pflege & Monitoring",
+      "beschreibung": "Langfristige Umsetzbarkeit durch vertragliche Sicherung (z. B. Pacht/Dienstbarkeit), Pflegekonzept und Monitoring/Reporting in klaren Intervallen – damit Kompensation dauerhaft funktioniert."
+    },
+    {
+      "titel": "Transparenter Prozess & Tempo",
+      "beschreibung": "Klare Kriterien, nachvollziehbare Entscheidungen und grobe Zeit-/Kostenrahmen helfen, Ausgleichsflächen früh im Projekt zu verankern – ohne spätere Überraschungen."
+    },
+    {
+      "titel": "Regionale Einordnung über Teilräume",
+      "beschreibung": "Wir strukturieren Suche und Kommunikation entlang der LaPro-Teilräume (Niederlausitzer Landrücken, Beeskower Platte, Märkische Schweiz, Schlaubetal) – als Orientierung, ohne unbelegte Detailbehauptungen."
+    }
+  ],
+  "projekte": [
+    {
+      "titel": "Waldumbau & Strukturentwicklung (typische Kompensation)",
+      "beschreibung": "Typische Maßnahme, wenn Waldflächen geeignet sind: Entwicklung standortgerechter Mischstrukturen, gestufte Waldränder, Struktur- und Totholzelemente sowie Pflegeplanung über mehrere Jahre.",
+      "bild": {
+        "src": "/assets/naturraeume/ostbrandenburgisches_heide_und_seengebiet/projekt-1.jpg",
+        "alt": "Typische Kompensationsmaßnahme: Waldumbau mit Pflege- und Entwicklungszielen"
+      }
+    },
+    {
+      "titel": "Gewässer-/Auenaufwertung (typische Kompensation)",
+      "beschreibung": "Wo fachlich und genehmigungsrechtlich passend: Entwicklung von Gewässerrandstreifen, Uferbereichen, Kleingewässern oder Feuchtstellen – inklusive Flächensicherung und Pflege-/Monitoringkonzept.",
+      "bild": {
+        "src": "/assets/naturraeume/ostbrandenburgisches_heide_und_seengebiet/projekt-2.jpg",
+        "alt": "Typische Kompensationsmaßnahme: Gewässer- und Feuchtbereich-Aufwertung mit Monitoring"
+      }
+    },
+    {
+      "titel": "Extensivierung & Biotopverbund (typische Kompensation)",
+      "beschreibung": "Typische Maßnahmen im Offenland: Extensivierung von Nutzung, Anlage von Säumen/Hecken und Trittsteinbiotopen sowie Dokumentation für Ökopunkte – abgestimmt auf Ziele und Flächenpotenziale.",
+      "bild": {
+        "src": "/assets/naturraeume/ostbrandenburgisches_heide_und_seengebiet/projekt-3.jpg",
+        "alt": "Typische Kompensationsmaßnahme: Extensivierung und Biotopverbund mit Pflegekonzept"
+      }
+    }
+  ]
+}
