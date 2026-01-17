@@ -35,6 +35,11 @@
 | `npm run format`       | Format code with [Prettier](https://prettier.io/) |
 | `npm run clean`        | Remove `node_modules` and build output            |
 
+## Developer workflow
+
+- [Conductor Runbook](docs/CONDUCTOR_RUNBOOK.md)
+- [Workflow & Branching Plan (2 Wochen)](docs/WORKFLOW_BRANCHING_PLAN.md)
+
 ## Credits
 
 - astronaut image
