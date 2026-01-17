@@ -1,1 +1,166 @@
-PASTE_HERE
+[
+  {
+    "lapro_id": "barnim_und_lebus",
+    "lapro_name": "Barnim und Lebus",
+    "children": [
+      { "scholz_id": "790", "scholz_name": "Westbarnim" },
+      { "scholz_id": "791", "scholz_name": "Barnimplatte" },
+      { "scholz_id": "792", "scholz_name": "Waldhügelland des Oberbarnim" },
+      { "scholz_id": "793", "scholz_name": "Buckow-Rotes Luch" },
+      { "scholz_id": "794", "scholz_name": "Lebus" }
+    ]
+  },
+  {
+    "lapro_id": "elbe_elster_land",
+    "lapro_name": "Elbe- Elster-Land",
+    "children": [
+      { "scholz_id": "462", "scholz_name": "Großenhainer Pflege" },
+      { "scholz_id": "881", "scholz_name": "Elbe-Elster Tiefland" },
+      { "scholz_id": "882", "scholz_name": "Liebenwerdaer Heide" },
+      { "scholz_id": "883", "scholz_name": "Annaburger Heiden" }
+    ]
+  },
+  {
+    "lapro_id": "elbtal",
+    "lapro_name": "Elbtal",
+    "children": [
+      { "scholz_id": "875", "scholz_name": "Märkische Elbtalniederung" },
+      { "scholz_id": "876", "scholz_name": "Mittelelbe" }
+    ]
+  },
+  {
+    "lapro_id": "flaeming",
+    "lapro_name": "Fläming",
+    "children": [
+      { "scholz_id": "850", "scholz_name": "Burg-Ziesarer Vorfläming" },
+      { "scholz_id": "851", "scholz_name": "Westliche Fläminghochfläche" },
+      { "scholz_id": "852", "scholz_name": "Östliche Fläminghochfläche" },
+      { "scholz_id": "853", "scholz_name": "Flämingvorland" },
+      { "scholz_id": "854", "scholz_name": "Niederer Fläming" },
+      { "scholz_id": "855", "scholz_name": "Golmer Ländchen" },
+      { "scholz_id": "856", "scholz_name": "Zauche" },
+      { "scholz_id": "857", "scholz_name": "Belziger Landschaftswiesen" }
+    ]
+  },
+  {
+    "lapro_id": "mittlere_mark",
+    "lapro_name": "Mittlere Mark",
+    "children": [
+      { "scholz_id": "810", "scholz_name": "Nauener Platte" },
+      { "scholz_id": "811", "scholz_name": "Teltowplatte" },
+      { "scholz_id": "812", "scholz_name": "Brandenburgisch-Berliner Urstromtal" },
+      { "scholz_id": "813", "scholz_name": "Zerbster Land" },
+      { "scholz_id": "814", "scholz_name": "Werderaner Wachtelberg" },
+      { "scholz_id": "815", "scholz_name": "Potsdamer Wald- und Seengebiet" },
+      { "scholz_id": "816", "scholz_name": "Beelitzer Sander" },
+      { "scholz_id": "817", "scholz_name": "Saarmunder Endmoräne" },
+      { "scholz_id": "818", "scholz_name": "Glauer Berge" }
+    ]
+  },
+  {
+    "lapro_id": "niederlausitz",
+    "lapro_name": "Niederlausitz",
+    "children": [
+      { "scholz_id": "860", "scholz_name": "Niederlausitzer Landrücken" },
+      { "scholz_id": "861", "scholz_name": "Doberluger Platte" },
+      { "scholz_id": "862", "scholz_name": "Baruther Urstromtal" },
+      { "scholz_id": "863", "scholz_name": "Luckauer Becken" },
+      { "scholz_id": "864", "scholz_name": "Lausitzer Grenzwall" },
+      { "scholz_id": "865", "scholz_name": "Muskauer Heide" }
+    ]
+  },
+  {
+    "lapro_id": "nordbrandenburgisches_wald_und_seengebiet",
+    "lapro_name": "Nordbrandenburgisches Wald- und Seengebiet",
+    "children": [
+      { "scholz_id": "770", "scholz_name": "Neustrelitzer Kleinseenland" },
+      { "scholz_id": "771", "scholz_name": "Zehdenick-Spandauer Havelniederung" },
+      { "scholz_id": "772", "scholz_name": "Granseer Platte" },
+      { "scholz_id": "773", "scholz_name": "Ruppiner Schweiz" },
+      { "scholz_id": "774", "scholz_name": "Rheinsberger Seengebiet" },
+      { "scholz_id": "775", "scholz_name": "Stechlin-Ruppiner Land" },
+      { "scholz_id": "776", "scholz_name": "Fürstenberger Wald- und Seengebiet" },
+      { "scholz_id": "777", "scholz_name": "Templiner Seengebiet" },
+      { "scholz_id": "778", "scholz_name": "Schorfheide" }
+    ]
+  },
+  {
+    "lapro_id": "odertal",
+    "lapro_name": "Odertal",
+    "children": [
+      { "scholz_id": "895", "scholz_name": "Unteres Odertal" },
+      { "scholz_id": "896", "scholz_name": "Oderbruch" },
+      { "scholz_id": "897", "scholz_name": "Oderniederung" }
+    ]
+  },
+  {
+    "lapro_id": "ostbrandenburgisches_heide_und_seengebiet",
+    "lapro_name": "Ostbrandenburgisches Heide- und Seengebiet",
+    "children": [
+      { "scholz_id": "860", "scholz_name": "Niederlausitzer Landrücken" },
+      { "scholz_id": "870", "scholz_name": "Beeskower Platte" },
+      { "scholz_id": "871", "scholz_name": "Märkische Schweiz" },
+      { "scholz_id": "872", "scholz_name": "Schlaubetal" }
+    ]
+  },
+  {
+    "lapro_id": "prignitz_und_ruppiner_land",
+    "lapro_name": "Prignitz und Ruppiner Land",
+    "children": [
+      { "scholz_id": "780", "scholz_name": "Prignitz" },
+      { "scholz_id": "781", "scholz_name": "Wittstock-Ruppiner Heide" },
+      { "scholz_id": "782", "scholz_name": "Dosseplatten" },
+      { "scholz_id": "783", "scholz_name": "Kyritzer Platte" }
+    ]
+  },
+  {
+    "lapro_id": "rhin_havelland",
+    "lapro_name": "Rhin-Havelland",
+    "children": [
+      { "scholz_id": "800", "scholz_name": "Rhinluch" },
+      { "scholz_id": "801", "scholz_name": "Havelländisches Luch" },
+      { "scholz_id": "802", "scholz_name": "Havelländische Platte" },
+      { "scholz_id": "803", "scholz_name": "Nauener Platte" }
+    ]
+  },
+  {
+    "lapro_id": "spreewald",
+    "lapro_name": "Spreewald",
+    "children": [
+      { "scholz_id": "866", "scholz_name": "Spreewald" },
+      { "scholz_id": "867", "scholz_name": "Unterspreewald" },
+      { "scholz_id": "868", "scholz_name": "Spreewald-Randplatten" }
+    ]
+  },
+  {
+    "lapro_id": "uckermark",
+    "lapro_name": "Uckermark",
+    "children": [
+      { "scholz_id": "740", "scholz_name": "Ueckermünder Heide" },
+      { "scholz_id": "741", "scholz_name": "Uckermark" },
+      { "scholz_id": "742", "scholz_name": "Oberes Tollensetal" },
+      { "scholz_id": "743", "scholz_name": "Randow-Welsebruch" },
+      { "scholz_id": "744", "scholz_name": "Boitzenburger Platte" },
+      { "scholz_id": "745", "scholz_name": "Gerswalder Endmoräne" },
+      { "scholz_id": "746", "scholz_name": "Angermünder Heide" },
+      { "scholz_id": "747", "scholz_name": "Odertalhänge" },
+      { "scholz_id": "748", "scholz_name": "Unteres Odertal" }
+    ]
+  },
+  {
+    "lapro_id": "unteres_havelland",
+    "lapro_name": "Unteres Havelland",
+    "children": [
+      { "scholz_id": "760", "scholz_name": "Unteres Havelland" },
+      { "scholz_id": "761", "scholz_name": "Havelländische Platte" },
+      { "scholz_id": "762", "scholz_name": "Rhinluch" },
+      { "scholz_id": "763", "scholz_name": "Dosseplatten" },
+      { "scholz_id": "764", "scholz_name": "Elbtalaue" },
+      { "scholz_id": "765", "scholz_name": "Havelniederung" },
+      { "scholz_id": "766", "scholz_name": "Milower Platte" },
+      { "scholz_id": "767", "scholz_name": "Ländchen Glien" },
+      { "scholz_id": "768", "scholz_name": "Friesacker Platte" },
+      { "scholz_id": "769", "scholz_name": "Rathenower Havelbergplatte" }
+    ]
+  }
+]
