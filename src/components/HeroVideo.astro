@@ -24,8 +24,8 @@ const posterSrc = "/media/hero/hero-loop-01-poster.jpg";
   <div class="absolute inset-0 bg-[rgba(25,71,78,0.35)]"></div>
   <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-black/80"></div>
 
-  <div class="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl px-8 pb-16 pt-24">
-    <div class="grid w-full items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
+  <div class="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl px-8 pb-16 pt-24 lg:max-w-7xl xl:max-w-[1400px]">
+    <div class="grid w-full items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] xl:grid-cols-[0.85fr_1.15fr]">
       <div class="order-last space-y-6 lg:order-first">
         {hasEyebrowSlot ? (
           <div class="space-y-1 text-sm text-offset">
@@ -62,8 +62,8 @@ const posterSrc = "/media/hero/hero-loop-01-poster.jpg";
         </div>
       </div>
 
-      <div class="order-first flex justify-center lg:order-last lg:justify-end">
-        <div class="aspect-video w-full max-w-[520px] max-h-[52svh] lg:max-w-[640px] lg:max-h-[58svh] xl:max-w-[760px] 2xl:max-w-[880px]">
+      <div class="order-first flex min-w-0 justify-center lg:order-last lg:justify-end lg:justify-self-end">
+        <div class="aspect-video w-full max-w-[520px] max-h-[52svh] lg:ml-auto lg:max-w-[720px] lg:max-h-[60svh] xl:max-w-[880px] xl:max-h-[64svh] 2xl:max-w-[980px]">
           <video
             class="h-full w-full object-contain motion-reduce:hidden"
             autoplay
