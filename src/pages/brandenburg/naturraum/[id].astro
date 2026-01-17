@@ -1,7 +1,8 @@
 ---
 import { readFile } from "node:fs/promises";
-import { existsSync } from "node:fs";
 import { join } from "node:path";
+import BlogTeasers from "~/components/BlogTeasers.astro";
+import HeroVideo from "~/components/HeroVideo.astro";
 import laproList from "~/data/lapro/brandenburg_lapro_naturraeume.v1.json";
 import KoiLayout from "~/layouts/KoiLayout.astro";
 
@@ -54,20 +55,20 @@ if (naturraumData?.name !== lapro.lapro_name) {
 
 const description = naturraumData?.seo?.meta_description ?? "";
 
-const publicAssetsPath = join(process.cwd(), "public", "assets");
-const hasPageHeroVideo = existsSync(
-  join(publicAssetsPath, "naturraeume", id, "hero.mp4"),
-);
-const heroVideoSrc = hasPageHeroVideo
-  ? `/assets/naturraeume/${id}/hero.mp4`
-  : "/assets/brand/hero/loops/hero-loop-01.mp4";
+const heroHeadline = naturraumData?.hero?.headline ?? naturraumData?.name ?? "";
+const heroSubheadline =
+  naturraumData?.hero?.subheadline ??
+  "Wir unterstützen bei der Einordnung, Vorbereitung und Umsetzung von Kompensationsmaßnahmen – von der Flächenprüfung bis zur Unterlagenlage.";
 
-const hasPageHeroPoster = existsSync(
-  join(publicAssetsPath, "naturraeume", id, "hero.jpg"),
-);
-const heroPosterSrc = hasPageHeroPoster
-  ? `/assets/naturraeume/${id}/hero.jpg`
-  : "/assets/brand/hero/hero.jpg";
+const heroCtaPrimary = {
+  label: naturraumData?.hero?.cta_primaer?.label ?? "Projekt anfragen",
+  href: naturraumData?.hero?.cta_primaer?.href ?? "/kontakt/",
+};
+const heroCtaSecondary = {
+  label:
+    naturraumData?.hero?.cta_sekundaer?.label ?? "Zur Brandenburg-Übersicht",
+  href: naturraumData?.hero?.cta_sekundaer?.href ?? "/brandenburg/",
+};
 ---
 
 <KoiLayout
@@ -79,53 +80,13 @@ const heroPosterSrc = hasPageHeroPoster
       <a href="/brandenburg/" class="hover:underline">← Zur Brandenburg-Übersicht</a>
     </nav>
 
-    <header class="relative overflow-hidden rounded-3xl border border-default bg-offset">
-      <div class="absolute inset-0">
-        <video
-          class="h-full w-full object-cover"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="metadata"
-          poster={heroPosterSrc}
-        >
-          <source src={heroVideoSrc} type="video/mp4" />
-        </video>
-      </div>
-      <div class="absolute inset-0 bg-[rgba(25,71,78,0.35)]"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.05),rgba(0,0,0,0.75))]"></div>
-
-      <div class="relative space-y-5 px-8 py-14">
-        <p class="text-sm text-offset">
-          Naturraum-ID: <code class="rounded bg-black/30 px-1 py-0.5">{id}</code>
-        </p>
-        <div class="space-y-2">
-          <h1 class="text-4xl font-bold tracking-tight">
-            {naturraumData.hero?.headline ?? naturraumData.name}
-          </h1>
-          <p class="max-w-3xl text-offset">
-            {naturraumData.hero?.subheadline ??
-              "Wir unterstützen bei der Einordnung, Vorbereitung und Umsetzung von Kompensationsmaßnahmen – von der Flächenprüfung bis zur Unterlagenlage."}
-          </p>
-        </div>
-
-        <div class="flex flex-wrap gap-3">
-          <a
-            href={naturraumData.hero?.cta_primaer?.href ?? "/kontakt/"}
-            class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white hover:opacity-95"
-          >
-            {naturraumData.hero?.cta_primaer?.label ?? "Projekt anfragen"}
-          </a>
-          <a
-            href={naturraumData.hero?.cta_sekundaer?.href ?? "/brandenburg/"}
-            class="rounded-full border border-default bg-black/20 px-6 py-3 text-sm font-semibold hover:bg-black/30"
-          >
-            {naturraumData.hero?.cta_sekundaer?.label ?? "Zur Brandenburg-Übersicht"}
-          </a>
-        </div>
-      </div>
-    </header>
+    <HeroVideo
+      eyebrow={`Naturraum-ID: ${id}`}
+      headline={heroHeadline}
+      subheadline={heroSubheadline}
+      ctaPrimary={heroCtaPrimary}
+      ctaSecondary={heroCtaSecondary}
+    />
 
     <section class="space-y-6">
       <h2 class="text-2xl font-bold tracking-tight">Leistungsbausteine</h2>
@@ -166,36 +127,6 @@ const heroPosterSrc = hasPageHeroPoster
       </p>
     </section>
 
-    <section class="space-y-6">
-      <div class="flex flex-wrap items-end justify-between gap-4">
-        <h2 class="text-2xl font-bold tracking-tight">
-          Aktuelle Beiträge aus dem Blog
-        </h2>
-        <a href="/blog/" class="text-sm hover:underline">Alle Beiträge ansehen</a>
-      </div>
-      <div class="grid gap-4 md:grid-cols-3">
-        <a href="/blog/" class="rounded-2xl border border-default bg-offset p-5">
-          <h3 class="text-base font-semibold">Ökopunkte: Von der Idee zur Maßnahme</h3>
-          <p class="mt-2 text-sm text-offset">
-            Ein Überblick über typische Schritte, Unterlagen und Fallstricke –
-            ohne unnötige Annahmen zu lokalen Details.
-          </p>
-        </a>
-        <a href="/blog/" class="rounded-2xl border border-default bg-offset p-5">
-          <h3 class="text-base font-semibold">Flächenscouting & Sicherung</h3>
-          <p class="mt-2 text-sm text-offset">
-            Wie wir Verfügbarkeit, Nutzbarkeit und langfristige Pflege-/Monitoring-Aspekte
-            strukturiert betrachten.
-          </p>
-        </a>
-        <a href="/blog/" class="rounded-2xl border border-default bg-offset p-5">
-          <h3 class="text-base font-semibold">Behördenfähig planen</h3>
-          <p class="mt-2 text-sm text-offset">
-            Welche Nachweise und Beschreibungen in der Praxis helfen können, damit
-            Kompensation sauber dokumentiert wird.
-          </p>
-        </a>
-      </div>
-    </section>
+    <BlogTeasers />
   </div>
 </KoiLayout>
