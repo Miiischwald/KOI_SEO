@@ -20,9 +20,24 @@ const videoMp4Src = "/media/hero/hero-loop-01.mp4";
 const posterSrc = "/media/hero/hero-loop-01-poster.jpg";
 ---
 
-<section class="relative left-1/2 min-h-[100svh] w-screen -translate-x-1/2 overflow-hidden border-y border-default bg-offset">
+<section
+  id="koi-hero"
+  class="relative left-1/2 min-h-[100svh] w-screen -translate-x-1/2 overflow-hidden border-y border-default bg-offset"
+>
   <div class="absolute inset-0 bg-[rgba(25,71,78,0.35)]"></div>
   <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-black/80"></div>
+
+  <div class="koi-hero-nav absolute inset-x-0 bottom-6 z-20">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-8 text-sm xl:max-w-[1400px]">
+      <a href="/brandenburg/" class="text-sm font-semibold tracking-wide">
+        KOI • Brandenburg
+      </a>
+      <nav class="flex items-center gap-6 text-sm">
+        <a href="/brandenburg/" class="hover:underline">Brandenburg</a>
+        <a href="/kontakt/" class="hover:underline">Kontakt</a>
+      </nav>
+    </div>
+  </div>
 
   <div class="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl px-8 pb-16 pt-24 lg:max-w-7xl xl:max-w-[1400px]">
     <div class="grid w-full items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] xl:grid-cols-[0.85fr_1.15fr]">
