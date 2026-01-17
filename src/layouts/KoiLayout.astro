@@ -1,0 +1,75 @@
+---
+import "@fontsource-variable/inter";
+import "~/styles/index.css";
+
+type Props = {
+  title: string;
+  description?: string;
+};
+
+const { title, description } = Astro.props;
+const { generator } = Astro;
+---
+
+<!doctype html>
+<html lang="de" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="generator" content={generator} />
+
+    <title>{title}</title>
+    {description ? <meta name="description" content={description} /> : null}
+  </head>
+  <body class="koi-scope min-h-screen bg-default text-default text-base">
+    <header class="sticky top-0 z-50 border-b border-default bg-default backdrop-blur">
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-8 py-4">
+        <a href="/brandenburg/" class="text-sm font-semibold tracking-wide">
+          KOI • Brandenburg
+        </a>
+        <nav class="flex items-center gap-6 text-sm">
+          <a href="/brandenburg/" class="hover:underline">Brandenburg</a>
+          <a href="/kontakt/" class="hover:underline">Kontakt</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="mx-auto max-w-5xl px-8 py-16">
+      <slot />
+    </main>
+
+    <footer class="border-t border-default">
+      <div class="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-8 py-10">
+        <p class="text-sm text-offset">
+          Ausgleichsflächen • Ökopunkte • Kompensation (Brandenburg)
+        </p>
+        <a href="/kontakt/" class="text-sm hover:underline">Projekt anfragen</a>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .koi-scope {
+    --koi-primary: #19474e;
+    --koi-bg: #0b1220;
+    --koi-surface: #0f1a2b;
+    --koi-muted: #5c6a6a;
+    --koi-soft: #ecf3ed;
+    --koi-accent: #42c67e;
+
+    --color-primary: var(--koi-primary);
+    --color-secondary: var(--koi-accent);
+    --color-text: var(--koi-soft);
+    --color-text-offset: var(--koi-muted);
+    --color-background: var(--koi-bg);
+    --color-background-offset: var(--koi-surface);
+    --color-border: rgba(236, 243, 237, 0.14);
+  }
+
+  .koi-scope a:hover,
+  .koi-scope .btn:hover {
+    color: var(--koi-accent);
+  }
+</style>
