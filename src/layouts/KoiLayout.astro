@@ -9,6 +9,7 @@ type Props = {
 
 const { title, description } = Astro.props;
 const { generator } = Astro;
+const hasHead = Astro.slots.has("head");
 ---
 
 <!doctype html>
@@ -19,8 +20,13 @@ const { generator } = Astro;
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="generator" content={generator} />
 
-    <title>{title}</title>
-    {description ? <meta name="description" content={description} /> : null}
+    {!hasHead ? (
+      <>
+        <title>{title}</title>
+        {description ? <meta name="description" content={description} /> : null}
+      </>
+    ) : null}
+    <slot name="head" />
   </head>
   <body class="koi-scope min-h-screen bg-default text-default text-base">
     <header class="sticky top-0 z-50 border-b border-default bg-default backdrop-blur">

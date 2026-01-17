@@ -4,6 +4,7 @@ import { join } from "node:path";
 import BlogTeasers from "~/components/BlogTeasers.astro";
 import HeroVideo from "~/components/HeroVideo.astro";
 import laproList from "~/data/lapro/brandenburg_lapro_naturraeume.v1.json";
+import SeoHead from "~/components/SeoHead.astro";
 import KoiLayout from "~/layouts/KoiLayout.astro";
 
 export async function getStaticPaths() {
@@ -54,6 +55,13 @@ if (naturraumData?.name !== lapro.lapro_name) {
 }
 
 const description = naturraumData?.seo?.meta_description ?? "";
+const title =
+  naturraumData?.seo?.meta_title ?? naturraumData?.name ?? "Naturraum";
+
+const pathWithTrailingSlash = Astro.url.pathname.endsWith("/")
+  ? Astro.url.pathname
+  : `${Astro.url.pathname}/`;
+const canonicalUrl = new URL(pathWithTrailingSlash, Astro.site);
 
 const heroHeadline = naturraumData?.hero?.headline ?? naturraumData?.name ?? "";
 const heroSubheadline =
@@ -71,10 +79,13 @@ const heroCtaSecondary = {
 };
 ---
 
-<KoiLayout
-  title={naturraumData?.seo?.meta_title ?? naturraumData?.name ?? "Naturraum"}
-  description={description}
->
+<KoiLayout title={title} description={description}>
+  <SeoHead
+    slot="head"
+    title={title}
+    description={description}
+    canonicalUrl={canonicalUrl}
+  />
   <div class="space-y-14">
     <nav class="text-sm text-offset">
       <a href="/brandenburg/" class="hover:underline">← Zur Brandenburg-Übersicht</a>
