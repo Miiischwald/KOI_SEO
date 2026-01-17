@@ -62,27 +62,35 @@ const posterSrc = "/media/hero/hero-loop-01-poster.jpg";
       </div>
 
       <div class="flex justify-start lg:justify-end">
-        <div class="w-full max-w-[560px] overflow-hidden rounded-3xl border border-default bg-black/30 shadow-[0_24px_60px_rgba(0,0,0,0.35)]">
-          <div class="aspect-video">
-            <video
-              class="h-full w-full object-cover motion-reduce:hidden"
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="metadata"
-              poster={posterSrc}
-            >
-              <source src={videoSrc} type="video/mp4" />
-            </video>
-            <img
-              class="hidden h-full w-full object-cover motion-reduce:block"
-              src={posterSrc}
-              alt=""
-              loading="eager"
-              decoding="async"
-            />
-          </div>
+        <div
+          class="w-full max-w-[720px] max-h-[60svh] aspect-video"
+          style="
+            -webkit-mask-image: radial-gradient(closest-side, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+            mask-image: radial-gradient(closest-side, rgba(0,0,0,1) 70%, rgba(0,0,0,0) 100%);
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-size: 100% 100%;
+            mask-size: 100% 100%;
+          "
+        >
+          <video
+            class="h-full w-full object-cover motion-reduce:hidden"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster={posterSrc}
+          >
+            <source src={videoSrc} type="video/mp4" />
+          </video>
+          <img
+            class="hidden h-full w-full object-cover motion-reduce:block"
+            src={posterSrc}
+            alt=""
+            loading="eager"
+            decoding="async"
+          />
         </div>
       </div>
     </div>
