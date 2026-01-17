@@ -5,6 +5,10 @@
 - Main: `/Users/lucaingenbleek/Documents/KOI_SEO/astro-landing-page-v1` (branch `main`)
 - Conductor: `/Users/lucaingenbleek/conductor/workspaces/astro-landing-page-v1/<workspace>` (feature branches)
 
+## Related
+
+- [Workflow & Branching Plan (2 Wochen)](WORKFLOW_BRANCHING_PLAN.md)
+
 ## 0) Grundregel (damit nichts durcheinander kommt)
 
 - **Main-Worktree (dein “Truth”):**
@@ -154,4 +158,3 @@ Regeln:
    - 14 JSON Core-Datensätze erzeugen
 3. `content/` Branches pro Naturraum (Conductor parallel)
    - pro Naturraum 1 Blogpost + interne Links
-

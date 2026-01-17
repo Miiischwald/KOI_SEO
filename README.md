@@ -37,7 +37,8 @@
 
 ## Developer workflow
 
-- See [docs/CONDUCTOR_RUNBOOK.md](docs/CONDUCTOR_RUNBOOK.md) for the Conductor/worktree workflow for this repo.
+- [Conductor Runbook](docs/CONDUCTOR_RUNBOOK.md)
+- [Workflow & Branching Plan (2 Wochen)](docs/WORKFLOW_BRANCHING_PLAN.md)
 
 ## Credits
 
