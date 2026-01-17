@@ -7,7 +7,10 @@ const description =
   "Übersicht der 14 LaPro-Naturräume in Brandenburg – als Einstieg zu Ausgleichsflächen, Ökopunkten und Kompensation.";
 
 const heroCtaPrimary = { label: "Projekt anfragen", href: "/kontakt/" };
-const heroCtaSecondary = { label: "Zur Brandenburg-Übersicht", href: "/brandenburg/" };
+const heroCtaSecondary = {
+  label: "Zur Brandenburg-Übersicht",
+  href: "/brandenburg/",
+};
 ---
 
 <KoiLayout title="Brandenburg – Naturräume" description={description}>
@@ -21,8 +24,8 @@ const heroCtaSecondary = { label: "Zur Brandenburg-Übersicht", href: "/brandenb
     />
 
     <p class="max-w-3xl text-sm text-offset">
-      Diese Übersicht wird aus der LaPro-Quelle erzeugt und verlinkt auf die 14
-      Naturraum-Seiten unter{" "}
+      Diese Übersicht wird ausschließlich aus der LaPro-Quelle erzeugt und
+      verlinkt auf die 14 Naturraum-Seiten unter{" "}
       <code class="rounded bg-offset px-1 py-0.5">
         /brandenburg/naturraum/&lt;lapro_id&gt;/
       </code>.
