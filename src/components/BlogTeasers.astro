@@ -1,30 +1,13 @@
 ---
-type Teaser = {
-  titel: string;
-  snippet: string;
-  href: string;
-};
+import { getCollection } from "astro:content";
 
-const teasers: Array<Teaser> = [
-  {
-    titel: "Ökopunkte: Von der Idee zur Maßnahme",
-    snippet:
-      "Ein Überblick über typische Schritte, Unterlagen und Fallstricke – als Platzhalter bis echte Blogposts live sind.",
-    href: "/blog/",
-  },
-  {
-    titel: "Flächenscouting & Sicherung",
-    snippet:
-      "Wie Verfügbarkeit, Nutzbarkeit und langfristige Pflege-/Monitoring-Aspekte strukturiert betrachtet werden können.",
-    href: "/blog/",
-  },
-  {
-    titel: "Behördenfähig planen",
-    snippet:
-      "Welche Nachweise und Beschreibungen in der Praxis helfen können, damit Kompensation sauber dokumentiert wird.",
-    href: "/blog/",
-  },
-];
+const posts = (await getCollection("blog"))
+  .sort((a, b) => {
+    const dateA = a.data.publishDate ? new Date(a.data.publishDate) : 0;
+    const dateB = b.data.publishDate ? new Date(b.data.publishDate) : 0;
+    return dateB.getTime() - dateA.getTime();
+  })
+  .slice(0, 3);
 ---
 
 <section class="space-y-6">
@@ -34,10 +17,22 @@ const teasers: Array<Teaser> = [
   </div>
 
   <div class="grid gap-4 md:grid-cols-3">
-    {teasers.map((t) => (
-      <a href={t.href} class="rounded-2xl border border-default bg-offset p-5">
-        <h3 class="text-base font-semibold">{t.titel}</h3>
-        <p class="mt-2 text-sm text-offset">{t.snippet}</p>
+    {posts.map((post) => (
+      <a
+        href={`/blog/${post.slug}/`}
+        class="rounded-2xl border border-default bg-offset p-5 transition hover:border-secondary hover:text-secondary"
+      >
+        <p class="text-xs uppercase tracking-wide text-secondary">
+          {post.data.publishDate
+            ? new Date(post.data.publishDate).toLocaleDateString("de-DE", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })
+            : "Blog"}
+        </p>
+        <h3 class="text-base font-semibold">{post.data.title}</h3>
+        <p class="mt-2 text-sm text-offset">{post.data.excerpt}</p>
       </a>
     ))}
   </div>
