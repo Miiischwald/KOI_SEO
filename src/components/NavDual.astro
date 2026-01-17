@@ -1,0 +1,114 @@
+---
+/**
+ * NavDual - Dual navigation system component
+ *
+ * Renders a fixed header navigation that:
+ * - Hides when #koi-hero section is visible in viewport
+ * - Shows when scrolling past hero section
+ * - Respects prefers-reduced-motion
+ * - Works on pages with or without hero
+ *
+ * Behavior:
+ * - Pages WITH hero: Fixed nav hidden at top, shows when scrolling past
+ * - Pages WITHOUT hero: Fixed nav always visible (default state)
+ */
+---
+
+<header class="koi-nav-sticky fixed top-0 left-0 right-0 z-50 border-b border-default bg-default backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-8 py-4">
+    <a href="/brandenburg/" class="text-sm font-semibold tracking-wide">
+      KOI • Brandenburg
+    </a>
+    <nav class="flex items-center gap-6 text-sm">
+      <a href="/brandenburg/" class="hover:underline">Brandenburg</a>
+      <a href="/kontakt/" class="hover:underline">Kontakt</a>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  (function() {
+    // Prevent double initialization (e.g., with Astro View Transitions)
+    if (window.__koiNavInitialized) return;
+    window.__koiNavInitialized = true;
+
+    // Configuration constants
+    const HERO_ID = 'koi-hero';
+    const DATA_ATTR = 'data-hero-visible';
+    const INTERSECTION_THRESHOLD = 0.1;
+    const ROOT_MARGIN = '0px 0px -10% 0px';
+
+    /**
+     * Initialize navigation state management
+     */
+    function initNavigation() {
+      const heroElement = document.getElementById(HERO_ID);
+
+      // Pages without hero: ensure clean state
+      if (!heroElement) {
+        document.body.removeAttribute(DATA_ATTR);
+        return;
+      }
+
+      // Set initial state: hero is visible on page load
+      document.body.setAttribute(DATA_ATTR, 'true');
+
+      // Create IntersectionObserver to track hero visibility
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            // Update body attribute based on hero visibility
+            const isHeroVisible = entry.isIntersecting;
+            document.body.setAttribute(DATA_ATTR, isHeroVisible ? 'true' : 'false');
+          });
+        },
+        {
+          threshold: INTERSECTION_THRESHOLD,
+          root: null,
+          rootMargin: ROOT_MARGIN
+        }
+      );
+
+      // Start observing hero element
+      observer.observe(heroElement);
+    }
+
+    // Initialize on DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initNavigation);
+    } else {
+      initNavigation();
+    }
+  })();
+</script>
+
+<style>
+  /* Fixed navigation base styles */
+  .koi-nav-sticky {
+    /* Default: visible state */
+    transform: translateY(0);
+    opacity: 1;
+
+    /* Smooth transitions */
+    transition:
+      transform 300ms ease-out,
+      opacity 300ms ease-out;
+
+    /* Performance optimization */
+    will-change: transform, opacity;
+  }
+
+  /* Hidden state: when hero is visible */
+  :global(body[data-hero-visible="true"]) .koi-nav-sticky {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  /* Accessibility: respect motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .koi-nav-sticky {
+      transition: none;
+    }
+  }
+</style>

@@ -86,18 +86,20 @@ const heroCtaSecondary = {
     description={description}
     canonicalUrl={canonicalUrl}
   />
-  <div class="space-y-14">
-    <nav class="text-sm text-offset">
-      <a href="/brandenburg/" class="hover:underline">← Zur Brandenburg-Übersicht</a>
-    </nav>
-
+  <div class="-mt-16 space-y-14">
     <HeroVideo
-      eyebrow={`Naturraum-ID: ${id}`}
       headline={heroHeadline}
       subheadline={heroSubheadline}
       ctaPrimary={heroCtaPrimary}
       ctaSecondary={heroCtaSecondary}
-    />
+    >
+      <div slot="eyebrow" class="space-y-1">
+        <a href="/brandenburg/" class="hover:underline">
+          ← Zur Brandenburg-Übersicht
+        </a>
+        <p>Naturraum-ID: {id}</p>
+      </div>
+    </HeroVideo>
 
     <section class="space-y-6">
       <h2 class="text-2xl font-bold tracking-tight">Leistungsbausteine</h2>

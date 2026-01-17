@@ -13,63 +13,92 @@ type Props = {
 };
 
 const { eyebrow, headline, subheadline, ctaPrimary, ctaSecondary } = Astro.props;
+const hasEyebrowSlot = Astro.slots.has("eyebrow");
 
-const videoSrc = "/media/hero/hero-loop-01.mp4";
+const videoWebmSrc = "/media/hero/hero-loop-01.webm";
+const videoMp4Src = "/media/hero/hero-loop-01.mp4";
 const posterSrc = "/media/hero/hero-loop-01-poster.jpg";
 ---
 
-<section class="relative overflow-hidden rounded-3xl border border-default bg-offset">
-  <div class="absolute inset-0">
-    <video
-      class="h-full w-full object-cover motion-reduce:hidden"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      poster={posterSrc}
-    >
-      <source src={videoSrc} type="video/mp4" />
-    </video>
-    <img
-      class="hidden h-full w-full object-cover motion-reduce:block"
-      src={posterSrc}
-      alt=""
-      loading="eager"
-      decoding="async"
-    />
+<section
+  id="koi-hero"
+  class="relative left-1/2 min-h-[100svh] w-screen -translate-x-1/2 overflow-hidden border-y border-default bg-offset"
+>
+  <div class="absolute inset-0 bg-[rgba(25,71,78,0.35)]"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-black/80"></div>
+
+  <div class="koi-hero-nav absolute inset-x-0 bottom-6 z-20">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-8 text-sm xl:max-w-[1400px]">
+      <a href="/brandenburg/" class="text-sm font-semibold tracking-wide">
+        KOI • Brandenburg
+      </a>
+      <nav class="flex items-center gap-6 text-sm">
+        <a href="/brandenburg/" class="hover:underline">Brandenburg</a>
+        <a href="/kontakt/" class="hover:underline">Kontakt</a>
+      </nav>
+    </div>
   </div>
 
-  <div class="absolute inset-0 bg-[rgba(25,71,78,0.35)]"></div>
-  <div
-    class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-black/80"
-  ></div>
-
-  <div class="relative px-8 py-14 sm:py-16">
-    <div class="mx-auto flex max-w-4xl flex-col gap-6">
-      <div class="space-y-3">
-        {eyebrow ? <p class="text-sm text-offset">{eyebrow}</p> : null}
-        <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">{headline}</h1>
-        {subheadline ? (
-          <p class="max-w-3xl text-base text-offset sm:text-lg">{subheadline}</p>
+  <div class="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl px-8 pb-16 pt-24 lg:max-w-7xl xl:max-w-[1400px]">
+    <div class="grid w-full items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] xl:grid-cols-[0.85fr_1.15fr]">
+      <div class="order-last space-y-6 lg:order-first">
+        {hasEyebrowSlot ? (
+          <div class="space-y-1 text-sm text-offset">
+            <slot name="eyebrow" />
+          </div>
+        ) : eyebrow ? (
+          <p class="text-sm text-offset">{eyebrow}</p>
         ) : null}
+
+        <div class="space-y-3">
+          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">{headline}</h1>
+          {subheadline ? (
+            <p class="max-w-2xl text-base text-offset sm:text-lg">
+              {subheadline}
+            </p>
+          ) : null}
+        </div>
+
+        <div class="flex flex-wrap gap-3">
+          <a
+            href={ctaPrimary.href}
+            class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white hover:opacity-95"
+          >
+            {ctaPrimary.label}
+          </a>
+          {ctaSecondary ? (
+            <a
+              href={ctaSecondary.href}
+              class="rounded-full border border-white/20 bg-black/20 px-6 py-3 text-sm font-semibold text-white hover:bg-black/30"
+            >
+              {ctaSecondary.label}
+            </a>
+          ) : null}
+        </div>
       </div>
 
-      <div class="flex flex-wrap gap-3">
-        <a
-          href={ctaPrimary.href}
-          class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white hover:opacity-95"
-        >
-          {ctaPrimary.label}
-        </a>
-        {ctaSecondary ? (
-          <a
-            href={ctaSecondary.href}
-            class="rounded-full border border-white/20 bg-black/20 px-6 py-3 text-sm font-semibold text-white hover:bg-black/30"
+      <div class="order-first flex min-w-0 justify-center lg:order-last lg:justify-end lg:justify-self-end">
+        <div class="aspect-video w-full max-w-[520px] max-h-[52svh] lg:ml-auto lg:max-w-[720px] lg:max-h-[60svh] xl:max-w-[880px] xl:max-h-[64svh] 2xl:max-w-[980px]">
+          <video
+            class="h-full w-full object-contain motion-reduce:hidden"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster={posterSrc}
           >
-            {ctaSecondary.label}
-          </a>
-        ) : null}
+            <source src={videoWebmSrc} type="video/webm" />
+            <source src={videoMp4Src} type="video/mp4" />
+          </video>
+          <img
+            class="hidden h-full w-full object-contain motion-reduce:block"
+            src={posterSrc}
+            alt=""
+            loading="eager"
+            decoding="async"
+          />
+        </div>
       </div>
     </div>
   </div>

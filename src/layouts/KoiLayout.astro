@@ -1,6 +1,7 @@
 ---
 import "@fontsource-variable/inter";
 import "~/styles/index.css";
+import NavDual from "~/components/NavDual.astro";
 
 type Props = {
   title: string;
@@ -29,17 +30,7 @@ const hasHead = Astro.slots.has("head");
     <slot name="head" />
   </head>
   <body class="koi-scope min-h-screen bg-default text-default text-base">
-    <header class="sticky top-0 z-50 border-b border-default bg-default backdrop-blur">
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-8 py-4">
-        <a href="/brandenburg/" class="text-sm font-semibold tracking-wide">
-          KOI • Brandenburg
-        </a>
-        <nav class="flex items-center gap-6 text-sm">
-          <a href="/brandenburg/" class="hover:underline">Brandenburg</a>
-          <a href="/kontakt/" class="hover:underline">Kontakt</a>
-        </nav>
-      </div>
-    </header>
+    <NavDual />
 
     <main class="mx-auto max-w-5xl px-8 py-16">
       <slot />
