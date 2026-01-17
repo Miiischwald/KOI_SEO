@@ -1,5 +1,6 @@
 ---
 import { readFile } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { join } from "node:path";
 import laproList from "~/data/lapro/brandenburg_lapro_naturraeume.v1.json";
 import KoiLayout from "~/layouts/KoiLayout.astro";
@@ -52,6 +53,21 @@ if (naturraumData?.name !== lapro.lapro_name) {
 }
 
 const description = naturraumData?.seo?.meta_description ?? "";
+
+const publicAssetsPath = join(process.cwd(), "public", "assets");
+const hasPageHeroVideo = existsSync(
+  join(publicAssetsPath, "naturraeume", id, "hero.mp4"),
+);
+const heroVideoSrc = hasPageHeroVideo
+  ? `/assets/naturraeume/${id}/hero.mp4`
+  : "/assets/brand/hero/loops/hero-loop-01.mp4";
+
+const hasPageHeroPoster = existsSync(
+  join(publicAssetsPath, "naturraeume", id, "hero.jpg"),
+);
+const heroPosterSrc = hasPageHeroPoster
+  ? `/assets/naturraeume/${id}/hero.jpg`
+  : "/assets/brand/hero/hero.jpg";
 ---
 
 <KoiLayout
@@ -71,12 +87,14 @@ const description = naturraumData?.seo?.meta_description ?? "";
           muted
           loop
           playsinline
-          poster={`/assets/naturraeume/${id}/hero.jpg`}
+          preload="metadata"
+          poster={heroPosterSrc}
         >
-          <source src={`/assets/naturraeume/${id}/hero.mp4`} type="video/mp4" />
+          <source src={heroVideoSrc} type="video/mp4" />
         </video>
       </div>
-      <div class="absolute inset-0 bg-black/55"></div>
+      <div class="absolute inset-0 bg-[rgba(25,71,78,0.35)]"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.05),rgba(0,0,0,0.75))]"></div>
 
       <div class="relative space-y-5 px-8 py-14">
         <p class="text-sm text-offset">
