@@ -1,11 +1,8 @@
 ---
-import "@fontsource-variable/inter";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import Footer from "~/components/footer.astro";
-import Header from "~/components/header.astro";
 import laproList from "~/data/lapro/brandenburg_lapro_naturraeume.v1.json";
-import "~/styles/index.css";
+import KoiLayout from "~/layouts/KoiLayout.astro";
 
 export async function getStaticPaths() {
   return laproList.map((x) => ({ params: { id: x.lapro_id } }));
@@ -57,115 +54,130 @@ if (naturraumData?.name !== lapro.lapro_name) {
 const description = naturraumData?.seo?.meta_description ?? "";
 ---
 
-<!doctype html>
-<html lang="de" class="h-full motion-safe:scroll-smooth" data-theme="dark">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<KoiLayout
+  title={naturraumData?.seo?.meta_title ?? naturraumData?.name ?? "Naturraum"}
+  description={description}
+>
+  <div class="space-y-14">
+    <nav class="text-sm text-offset">
+      <a href="/brandenburg/" class="hover:underline">← Zur Brandenburg-Übersicht</a>
+    </nav>
 
-    <title>{naturraumData?.seo?.meta_title ?? naturraumData?.name}</title>
-    <meta name="description" content={description} />
+    <header class="relative overflow-hidden rounded-3xl border border-default bg-offset">
+      <div class="absolute inset-0">
+        <video
+          class="h-full w-full object-cover"
+          autoplay
+          muted
+          loop
+          playsinline
+          poster={`/assets/naturraeume/${id}/hero.jpg`}
+        >
+          <source src={`/assets/naturraeume/${id}/hero.mp4`} type="video/mp4" />
+        </video>
+      </div>
+      <div class="absolute inset-0 bg-black/55"></div>
 
-    <!-- initialize theme -->
-    <script is:inline>
-      const themeSaved = localStorage.getItem("theme");
-
-      if (themeSaved) {
-        document.documentElement.dataset.theme = themeSaved;
-      } else {
-        const prefersDark = window.matchMedia(
-          "(prefers-color-scheme: dark)",
-        ).matches;
-        document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
-      }
-
-      window
-        .matchMedia("(prefers-color-scheme: dark)")
-        .addEventListener("change", (event) => {
-          if (!localStorage.getItem("theme")) {
-            document.documentElement.dataset.theme = event.matches
-              ? "dark"
-              : "light";
-          }
-        });
-    </script>
-  </head>
-  <body
-    class="h-full overflow-x-hidden bg-default text-default text-base selection:bg-secondary selection:text-white"
-  >
-    <Header />
-    <main class="mx-auto max-w-5xl space-y-14 px-8 py-24">
-      <nav class="text-sm text-secondary">
-        <a href="/brandenburg/" class="hover:underline">← Zur Brandenburg-Übersicht</a>
-      </nav>
-
-      <header class="space-y-5">
-        <p class="text-sm text-secondary">
-          Naturraum-ID: <code class="rounded bg-muted px-1 py-0.5">{id}</code>
+      <div class="relative space-y-5 px-8 py-14">
+        <p class="text-sm text-offset">
+          Naturraum-ID: <code class="rounded bg-black/30 px-1 py-0.5">{id}</code>
         </p>
         <div class="space-y-2">
           <h1 class="text-4xl font-bold tracking-tight">
             {naturraumData.hero?.headline ?? naturraumData.name}
           </h1>
-          <p class="max-w-3xl text-secondary">
-            {naturraumData.hero?.subheadline}
+          <p class="max-w-3xl text-offset">
+            {naturraumData.hero?.subheadline ??
+              "Wir unterstützen bei der Einordnung, Vorbereitung und Umsetzung von Kompensationsmaßnahmen – von der Flächenprüfung bis zur Unterlagenlage."}
           </p>
         </div>
 
         <div class="flex flex-wrap gap-3">
           <a
             href={naturraumData.hero?.cta_primaer?.href ?? "/kontakt/"}
-            class="rounded-full bg-secondary px-6 py-3 text-sm font-semibold text-white hover:opacity-90"
+            class="rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white hover:opacity-95"
           >
             {naturraumData.hero?.cta_primaer?.label ?? "Projekt anfragen"}
           </a>
           <a
             href={naturraumData.hero?.cta_sekundaer?.href ?? "/brandenburg/"}
-            class="rounded-full border border-default bg-muted/20 px-6 py-3 text-sm font-semibold hover:bg-muted/40"
+            class="rounded-full border border-default bg-black/20 px-6 py-3 text-sm font-semibold hover:bg-black/30"
           >
             {naturraumData.hero?.cta_sekundaer?.label ?? "Zur Brandenburg-Übersicht"}
           </a>
         </div>
-      </header>
+      </div>
+    </header>
 
-      <section class="space-y-6">
-        <h2 class="text-2xl font-bold tracking-tight">Leistungsbausteine</h2>
-        <div class="grid gap-4 md:grid-cols-2">
-          {naturraumData.features?.map((f) => (
-            <div class="rounded-2xl border border-default bg-muted/30 p-5">
-              <h3 class="text-lg font-semibold">{f.titel}</h3>
-              <p class="mt-2 text-sm text-secondary">{f.beschreibung}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+    <section class="space-y-6">
+      <h2 class="text-2xl font-bold tracking-tight">Leistungsbausteine</h2>
+      <div class="grid gap-4 md:grid-cols-2">
+        {naturraumData.features?.map((f) => (
+          <div class="rounded-2xl border border-default bg-offset p-5">
+            <h3 class="text-lg font-semibold">{f.titel}</h3>
+            <p class="mt-2 text-sm text-offset">{f.beschreibung}</p>
+          </div>
+        ))}
+      </div>
+    </section>
 
-      <section class="space-y-6">
-        <h2 class="text-2xl font-bold tracking-tight">Typische Kompensationsmaßnahmen</h2>
-        <div class="grid gap-6 md:grid-cols-3">
-          {naturraumData.projekte?.map((p) => (
-            <article class="rounded-2xl border border-default bg-muted/30 p-5">
-	              <img
-	                src={p.bild?.src}
-	                alt={p.bild?.alt ?? ""}
-	                class="mb-4 aspect-[4/3] w-full rounded-xl bg-muted object-cover"
-	                loading="lazy"
-	              />
-              <h3 class="text-lg font-semibold">{p.titel}</h3>
-              <p class="mt-2 text-sm text-secondary">{p.beschreibung}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+    <section class="space-y-6">
+      <h2 class="text-2xl font-bold tracking-tight">
+        Typische Kompensationsmaßnahmen
+      </h2>
+      <div class="grid gap-6 md:grid-cols-3">
+        {naturraumData.projekte?.map((p) => (
+          <article class="rounded-2xl border border-default bg-offset p-5">
+            <img
+              src={p.bild?.src}
+              alt={p.bild?.alt ?? ""}
+              class="mb-4 aspect-[4/3] w-full rounded-xl bg-black/20 object-cover"
+              loading="lazy"
+            />
+            <h3 class="text-lg font-semibold">{p.titel}</h3>
+            <p class="mt-2 text-sm text-offset">{p.beschreibung}</p>
+          </article>
+        ))}
+      </div>
+    </section>
 
-      <section class="space-y-3 rounded-2xl border border-default bg-muted/20 p-5">
-        <h2 class="text-lg font-semibold">Teilräume (LaPro/Scholz)</h2>
-        <p class="text-sm text-secondary">
-          {lapro.children?.map((c) => c.scholz_name).join(", ")}
-        </p>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+    <section class="space-y-3 rounded-2xl border border-default bg-offset p-5">
+      <h2 class="text-lg font-semibold">Teilräume (LaPro/Scholz)</h2>
+      <p class="text-sm text-offset">
+        {lapro.children?.map((c) => c.scholz_name).join(", ")}
+      </p>
+    </section>
+
+    <section class="space-y-6">
+      <div class="flex flex-wrap items-end justify-between gap-4">
+        <h2 class="text-2xl font-bold tracking-tight">
+          Aktuelle Beiträge aus dem Blog
+        </h2>
+        <a href="/blog/" class="text-sm hover:underline">Alle Beiträge ansehen</a>
+      </div>
+      <div class="grid gap-4 md:grid-cols-3">
+        <a href="/blog/" class="rounded-2xl border border-default bg-offset p-5">
+          <h3 class="text-base font-semibold">Ökopunkte: Von der Idee zur Maßnahme</h3>
+          <p class="mt-2 text-sm text-offset">
+            Ein Überblick über typische Schritte, Unterlagen und Fallstricke –
+            ohne unnötige Annahmen zu lokalen Details.
+          </p>
+        </a>
+        <a href="/blog/" class="rounded-2xl border border-default bg-offset p-5">
+          <h3 class="text-base font-semibold">Flächenscouting & Sicherung</h3>
+          <p class="mt-2 text-sm text-offset">
+            Wie wir Verfügbarkeit, Nutzbarkeit und langfristige Pflege-/Monitoring-Aspekte
+            strukturiert betrachten.
+          </p>
+        </a>
+        <a href="/blog/" class="rounded-2xl border border-default bg-offset p-5">
+          <h3 class="text-base font-semibold">Behördenfähig planen</h3>
+          <p class="mt-2 text-sm text-offset">
+            Welche Nachweise und Beschreibungen in der Praxis helfen können, damit
+            Kompensation sauber dokumentiert wird.
+          </p>
+        </a>
+      </div>
+    </section>
+  </div>
+</KoiLayout>
