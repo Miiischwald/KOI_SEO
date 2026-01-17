@@ -39,6 +39,10 @@
 
 - [Conductor Runbook](docs/CONDUCTOR_RUNBOOK.md)
 - [Workflow & Branching Plan (2 Wochen)](docs/WORKFLOW_BRANCHING_PLAN.md)
+## Developer workflow
+
+- [Conductor Runbook](docs/CONDUCTOR_RUNBOOK.md)
+- [Workflow & Branching Plan (2 Wochen)](docs/WORKFLOW_BRANCHING_PLAN.md)
 - [Data sources](docs/DATA_SOURCES.md)
 
 ## Credits
