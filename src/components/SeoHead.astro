@@ -1,0 +1,43 @@
+---
+type Props = {
+  title: string;
+  description?: string;
+  canonicalUrl: string | URL;
+  ogImageUrl?: string;
+  noindex?: boolean;
+};
+
+const {
+  title,
+  description = "",
+  canonicalUrl,
+  ogImageUrl = "/media/og/og-default-1200x630.jpg",
+  noindex = false,
+} = Astro.props;
+
+const canonical =
+  canonicalUrl instanceof URL ? canonicalUrl.toString() : canonicalUrl;
+
+const resolvedOgImage = ogImageUrl.startsWith("http")
+  ? ogImageUrl
+  : new URL(ogImageUrl, Astro.site).toString();
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+
+{noindex ? <meta name="robots" content="noindex,follow" /> : null}
+
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={resolvedOgImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={resolvedOgImage} />

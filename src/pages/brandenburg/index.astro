@@ -1,10 +1,13 @@
 ---
 import HeroVideo from "~/components/HeroVideo.astro";
 import KoiLayout from "~/layouts/KoiLayout.astro";
+import SeoHead from "~/components/SeoHead.astro";
 import laproList from "~/data/lapro/brandenburg_lapro_naturraeume.v1.json";
 
 const description =
   "Übersicht der 14 LaPro-Naturräume in Brandenburg – als Einstieg zu Ausgleichsflächen, Ökopunkten und Kompensation.";
+const title = "Brandenburg – Naturräume";
+const canonicalUrl = new URL("/brandenburg/", Astro.site);
 
 const heroCtaPrimary = { label: "Projekt anfragen", href: "/kontakt/" };
 const heroCtaSecondary = {
@@ -13,7 +16,13 @@ const heroCtaSecondary = {
 };
 ---
 
-<KoiLayout title="Brandenburg – Naturräume" description={description}>
+<KoiLayout title={title} description={description}>
+  <SeoHead
+    slot="head"
+    title={title}
+    description={description}
+    canonicalUrl={canonicalUrl}
+  />
   <div class="space-y-10">
     <HeroVideo
       eyebrow="KOI_SEO • Brandenburg"
