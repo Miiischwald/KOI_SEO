@@ -25,8 +25,8 @@ const posterSrc = "/media/hero/hero-loop-01-poster.jpg";
   <div class="absolute inset-0 bg-gradient-to-b from-black/20 via-black/45 to-black/80"></div>
 
   <div class="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl px-8 pb-16 pt-24">
-    <div class="grid w-full items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-      <div class="space-y-6">
+    <div class="grid w-full items-center gap-12 lg:grid-cols-[1fr_1.1fr]">
+      <div class="order-last space-y-6 lg:order-first">
         {hasEyebrowSlot ? (
           <div class="space-y-1 text-sm text-offset">
             <slot name="eyebrow" />
@@ -62,10 +62,10 @@ const posterSrc = "/media/hero/hero-loop-01-poster.jpg";
         </div>
       </div>
 
-      <div class="flex justify-start lg:justify-end">
-        <div class="w-full max-w-[720px] max-h-[60svh] aspect-video bg-transparent">
+      <div class="order-first flex justify-center lg:order-last lg:justify-end">
+        <div class="aspect-video w-full max-w-[520px] max-h-[52svh] lg:max-w-[640px] lg:max-h-[58svh] xl:max-w-[760px] 2xl:max-w-[880px]">
           <video
-            class="h-full w-full object-cover motion-reduce:hidden"
+            class="h-full w-full object-contain motion-reduce:hidden"
             autoplay
             muted
             loop
@@ -77,7 +77,7 @@ const posterSrc = "/media/hero/hero-loop-01-poster.jpg";
             <source src={videoMp4Src} type="video/mp4" />
           </video>
           <img
-            class="hidden h-full w-full object-cover motion-reduce:block"
+            class="hidden h-full w-full object-contain motion-reduce:block"
             src={posterSrc}
             alt=""
             loading="eager"
