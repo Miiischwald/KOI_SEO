@@ -23,7 +23,7 @@ const posts = (await getCollection("blog")).sort((a, b) => {
       {posts.map((post) => (
         <a
           href={`/blog/${post.slug}/`}
-          class="rounded-2xl border border-default bg-offset p-5 transition hover:border-secondary hover:text-secondary"
+          class="min-w-0 rounded-2xl border border-default bg-offset p-5 transition hover:border-secondary hover:text-secondary"
         >
           <p class="text-xs uppercase tracking-wide text-secondary">
             {post.data.publishDate
@@ -34,7 +34,7 @@ const posts = (await getCollection("blog")).sort((a, b) => {
                 })
               : "Blog"}
           </p>
-          <h2 class="text-lg font-semibold">{post.data.title}</h2>
+          <h2 class="text-lg font-semibold hyphens-auto break-words text-balance">{post.data.title}</h2>
           <p class="mt-2 text-sm text-offset">{post.data.excerpt}</p>
         </a>
       ))}
