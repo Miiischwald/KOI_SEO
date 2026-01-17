@@ -41,7 +41,7 @@ const posterSrc = "/media/hero/hero-loop-01-poster.jpg";
 
   <div class="relative z-10 mx-auto flex min-h-[100svh] max-w-6xl px-8 pb-16 pt-24 lg:max-w-7xl xl:max-w-[1400px]">
     <div class="grid w-full items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] xl:grid-cols-[0.85fr_1.15fr]">
-      <div class="order-last space-y-6 lg:order-first">
+      <div class="min-w-0 order-last space-y-6 lg:order-first">
         {hasEyebrowSlot ? (
           <div class="space-y-1 text-sm text-offset">
             <slot name="eyebrow" />
@@ -51,7 +51,7 @@ const posterSrc = "/media/hero/hero-loop-01-poster.jpg";
         ) : null}
 
         <div class="space-y-3">
-          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">{headline}</h1>
+          <h1 class="text-4xl font-bold tracking-tight sm:text-5xl hyphens-auto break-words text-balance">{headline}</h1>
           {subheadline ? (
             <p class="max-w-2xl text-base text-offset sm:text-lg">
               {subheadline}

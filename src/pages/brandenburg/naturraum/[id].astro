@@ -105,8 +105,8 @@ const heroCtaSecondary = {
       <h2 class="text-2xl font-bold tracking-tight">Leistungsbausteine</h2>
       <div class="grid gap-4 md:grid-cols-2">
         {naturraumData.features?.map((f) => (
-          <div class="rounded-2xl border border-default bg-offset p-5">
-            <h3 class="text-lg font-semibold">{f.titel}</h3>
+          <div class="min-w-0 rounded-2xl border border-default bg-offset p-5">
+            <h3 class="text-lg font-semibold hyphens-auto break-words text-balance">{f.titel}</h3>
             <p class="mt-2 text-sm text-offset">{f.beschreibung}</p>
           </div>
         ))}
@@ -119,14 +119,14 @@ const heroCtaSecondary = {
       </h2>
       <div class="grid gap-6 md:grid-cols-3">
         {naturraumData.projekte?.map((p) => (
-          <article class="rounded-2xl border border-default bg-offset p-5">
+          <article class="min-w-0 rounded-2xl border border-default bg-offset p-5">
             <img
               src={p.bild?.src}
               alt={p.bild?.alt ?? ""}
               class="mb-4 aspect-[4/3] w-full rounded-xl bg-black/20 object-cover"
               loading="lazy"
             />
-            <h3 class="text-lg font-semibold">{p.titel}</h3>
+            <h3 class="text-lg font-semibold hyphens-auto break-words text-balance">{p.titel}</h3>
             <p class="mt-2 text-sm text-offset">{p.beschreibung}</p>
           </article>
         ))}
