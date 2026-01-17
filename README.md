@@ -35,6 +35,10 @@
 | `npm run format`       | Format code with [Prettier](https://prettier.io/) |
 | `npm run clean`        | Remove `node_modules` and build output            |
 
+## Developer workflow
+
+- See [docs/CONDUCTOR_RUNBOOK.md](docs/CONDUCTOR_RUNBOOK.md) for the Conductor/worktree workflow for this repo.
+
 ## Credits
 
 - astronaut image
