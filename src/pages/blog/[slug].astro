@@ -1,0 +1,34 @@
+---
+import KoiLayout from "~/layouts/KoiLayout.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<KoiLayout title={post.data.title} description={post.data.excerpt}>
+  <article class="space-y-4">
+    <p class="text-xs uppercase tracking-wide text-secondary">
+      {post.data.publishDate
+        ? new Date(post.data.publishDate).toLocaleDateString("de-DE", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })
+        : "Blog"}
+    </p>
+    <h1 class="text-3xl font-bold tracking-tight">{post.data.title}</h1>
+    <p class="text-sm text-offset">{post.data.excerpt}</p>
+    <div class="prose prose-invert max-w-none">
+      <Content />
+    </div>
+  </article>
+</KoiLayout>

@@ -13,4 +13,14 @@ const showcase = defineCollection({
 
 export const collections = {
   showcase,
+  blog: defineCollection({
+    type: "content",
+    schema: ({ image }) =>
+      z.object({
+        title: z.string().min(1),
+        excerpt: z.string().min(1),
+        publishDate: z.date().optional(),
+        heroImage: image().optional(),
+      }),
+  }),
 };
