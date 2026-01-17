@@ -15,7 +15,8 @@ type Props = {
 const { eyebrow, headline, subheadline, ctaPrimary, ctaSecondary } = Astro.props;
 const hasEyebrowSlot = Astro.slots.has("eyebrow");
 
-const videoSrc = "/media/hero/hero-loop-01.mp4";
+const videoWebmSrc = "/media/hero/hero-loop-01.webm";
+const videoMp4Src = "/media/hero/hero-loop-01.mp4";
 const posterSrc = "/media/hero/hero-loop-01-poster.jpg";
 ---
 
@@ -72,7 +73,8 @@ const posterSrc = "/media/hero/hero-loop-01-poster.jpg";
             preload="metadata"
             poster={posterSrc}
           >
-            <source src={videoSrc} type="video/mp4" />
+            <source src={videoWebmSrc} type="video/webm" />
+            <source src={videoMp4Src} type="video/mp4" />
           </video>
           <img
             class="hidden h-full w-full object-cover motion-reduce:block"
